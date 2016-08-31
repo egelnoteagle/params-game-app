@@ -41,4 +41,30 @@ class ParamsGamesController < ApplicationController
         @message = "Please guess between 1-100"   
     end
   end
+
+  def get_form
+    
+  end
+
+  def send_form
+    @message = params[:message]
+  end
+
+  def guess_form
+    
+  end
+
+  def guess_send_form
+    guess = params[:guess].to_i
+    correct_answer = 55
+    if guess == correct_answer
+      @message = "You did it!"
+      elsif guess < correct_answer
+        @message = "Wrong, click the back button and guess higher."
+      elsif guess > correct_answer
+        @message = "Wrong, click the back button and guess lower."
+      elsif guess < 1 || guess > 100  
+        @message = "Please guess between 1-100"   
+    end
+  end
 end
